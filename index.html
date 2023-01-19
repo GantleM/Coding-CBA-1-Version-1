@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.3.6
+            Version: V0.3.8
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -99,15 +99,15 @@
     
         <script>
             
-            const dict = {}
-            const response = {}
+            
             var passwordInput = document.getElementById("password").value;
             var usernameInput = document.getElementById("username").value;
 
             async function loadUsers(){
-                response = await fetch('./users.json');
-                dict = await response.json();
+                const response = await fetch('./users.json');
+                const dict = await response.json();
 
+                return(dict);
 
             }
        
@@ -116,11 +116,11 @@
                 loadUsers()
                     //.then((response) => response.json())
                     //.then((json) => console.log(json));
-
+                var listReturned = dict
 
                 
                 
-                if(dict[usernameInput] == passwordInput)
+                if(listReturned[usernameInput] == passwordInput)
                 {
                     console.log("True");
                     window.location = "LoggedIn.html"
