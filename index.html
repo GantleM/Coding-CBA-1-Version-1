@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.4.8.6
+            Version: V0.4.8.7
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -23,6 +23,7 @@
                 - Extracts it into var data
             - Added isLoggedIn cookie (bug fixed?)
             - Added show password
+            - Bit of styling
 
         --> 
         <title> Log-in Test </title>
@@ -102,8 +103,10 @@
             <p> Log in </p>
             <form>
                 <input type="text" id="username" placeholder="Username">
+                </br>
                 <input type="password" id="password" placeholder="Password">
                 <span class="checkBox"> <input type="checkbox" id="checkbox" onclick="showPass()"> Show Password </span>
+                </br>
                 <input type="button" value="Submit" onclick="checkInput()">
             </form>
         </div>
