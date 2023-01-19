@@ -3,21 +3,15 @@
     <head>
         <!-- 
             
-            Version: V3.4.1
-            Developer: Mark Megyesi
+            Version: V0.0.1
+            Developer: Mark 
             Date: Last edit 16/02/2022
             Subject: Coding project | Home page
             Title: CSMH Reviews
             
 
             Note(s):
-            - Past versions: 
-                - 1) No themes
-                - 2) White theme + dark theme websites
-                - 3+) Javascript theme changer
-
-            - Now the theme changer uses console.table
-            - The current version of the site's search bar is just decoration
+            
 
         --> 
         <title> Login Test </title>
@@ -86,15 +80,21 @@
 
         </div>
 
+
+        <button onclick="logOut()"> Log-out </button>
+
         
 
             
     
         <script>
-            
 
-            
-                        
+            var isLoggedIn = parseInt(localStorage.isLoggedIn);
+
+            function logOut(){
+                localStorage.isLoggedIn = 0;
+                window.location = "index.html"
+            }
                         
          
     
