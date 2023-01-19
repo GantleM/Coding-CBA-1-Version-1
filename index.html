@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.4.8.1
+            Version: V0.4.8.2
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -116,20 +116,22 @@
                 
                 if(isLoggedIn !== isLoggedIn || isLoggedIn == 0)
                 {   
-                    localStorage.isLoggedIn = 0
+                    console.log("User isn't logged in", isLoggedIn)
+                    localStorage.isLoggedIn = 0;
                     if(data[usernameInput] == passwordInput)
                     {
                         console.log("True");
-                        localStorage.isLoggedIn = 1
-                        window.location = "LoggedIn.html"
+                        localStorage.isLoggedIn = 1;
+                        window.location = "LoggedIn.html";
                     }
                     else{
-                        console.log("Wrong pass or username.")
+                        console.log("Wrong pass or username.");
                     }
                 }
 
                 else
                 {
+                    close.log("User is logged in", isLoggedIn)
                     window.location = "LoggedIn.html"
                 }
             
