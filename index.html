@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.3.3
+            Version: V0.3.5
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -104,19 +104,15 @@
             function checkInput(){
                 
 
-                
+                dict = {fetch('./users.json')}
+                    //.then((response) => response.json())
+                    //.then((json) => console.log(json));
+
 
                 var passwordInput = document.getElementById("password").value;
                 var usernameInput = document.getElementById("username").value;
-                var dict = {}
-
-                fetch('./users.json')
-                .then((response) => response.json())
-                .then((response) => (dict))
-
-                console.log(dict)
-
-                if(dict[usernameInput] == passwordInput)
+                
+                if(json[usernameInput] == passwordInput)
                 {
                     console.log("True");
                     window.location = "LoggedIn.html"
