@@ -91,7 +91,7 @@
         </style>
     </head>
     
-    <body class="body" id="body" onload="loggedInCheck()">
+    <body class="body" id="body" >
         
         <!-- Header and buttons -->
         <div class="header" id="header">    
@@ -141,6 +141,8 @@
                     window.location = "LoggedIn.html"
                 }
             }
+
+            window.onpaint = loggedInCheck();
 
             function showPass(){
                 if(showPassCheckBox.checked){
