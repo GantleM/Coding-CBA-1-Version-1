@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.3.2
+            Version: V0.3.3
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -115,8 +115,8 @@
                 .then((response) => (dict))
 
                 console.log(dict)
-                
-                if(json[usernameInput] == passwordInput)
+
+                if(dict[usernameInput] == passwordInput)
                 {
                     console.log("True");
                     window.location = "LoggedIn.html"
