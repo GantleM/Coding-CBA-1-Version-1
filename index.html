@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.4.5
+            Version: V0.4.6
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -11,7 +11,8 @@
             
 
             Note(s):
-            - Need to import/use the json file
+            - Reads json file called users.json
+                - Extracts it into var data
 
         --> 
         <title> Log-in Test </title>
@@ -102,17 +103,15 @@
             
             
             async function checkInput(){
-
+                var passwordInput = document.getElementById("password").value;
+                var usernameInput = document.getElementById("username").value;
+                // - Get data from Json file
                 var response = await fetch("./users.json")
                 var data = await response.json()
 
                 
 
-                var passwordInput = document.getElementById("password").value;
-                var usernameInput = document.getElementById("username").value;
-                
-                console.log(data);
-
+            
                 if(data[usernameInput] == passwordInput)
                 {
                     console.log("True");
