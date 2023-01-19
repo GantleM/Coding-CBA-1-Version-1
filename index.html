@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.4.8.5
+            Version: V0.4.8.6
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -78,6 +78,7 @@
             .logIn{
                 background-color:#838383;
                 text-align: center;
+                padding: 10px;
                 margin: 5% 35% 0%;
             }
         </style>
@@ -102,7 +103,7 @@
             <form>
                 <input type="text" id="username" placeholder="Username">
                 <input type="password" id="password" placeholder="Password">
-                <input type="checkbox" id="checkbox" onclick="showPass()"> Show Password
+                <span class="checkBox"> <input type="checkbox" id="checkbox" onclick="showPass()"> Show Password </span>
                 <input type="button" value="Submit" onclick="checkInput()">
             </form>
         </div>
