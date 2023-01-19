@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.4.8.2
+            Version: V0.4.8.3
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -74,7 +74,7 @@
         </style>
     </head>
     
-    <body class="body" id="body">
+    <body class="body" id="body" onload="isLoggedIn()">
         
         <!-- Header and buttons -->
         <div class="header" id="header">    
@@ -101,39 +101,42 @@
     
         <script>
             
+            var isLoggedIn = parseInt(localStorage.isLoggedIn);
             
-            
+            function isLoggedIn(){
+                if(isLoggedIn !== isLoggedIn || isLoggedIn == 0){
+                    onsole.log("User isn't logged in", isLoggedIn)
+                    localStorage.isLoggedIn = 0;
+                }
+                
+                else{
+                    console.log("User is logged in", isLoggedIn)
+                    window.location = "LoggedIn.html"
+                }
+            }
+
             async function checkInput(){
                 var passwordInput = document.getElementById("password").value;
                 var usernameInput = document.getElementById("username").value;
 
-                var isLoggedIn = parseInt(localStorage.isLoggedIn);
+                
 
                 // - Get data from Json file
                 var response = await fetch("./users.json")
                 var data = await response.json()
 
-                
-                if(isLoggedIn !== isLoggedIn || isLoggedIn == 0)
-                {   
-                    console.log("User isn't logged in", isLoggedIn)
-                    localStorage.isLoggedIn = 0;
-                    if(data[usernameInput] == passwordInput)
-                    {
-                        console.log("True");
-                        localStorage.isLoggedIn = 1;
-                        window.location = "LoggedIn.html";
-                    }
-                    else{
-                        console.log("Wrong pass or username.");
-                    }
-                }
-
-                else
+                if(data[usernameInput] == passwordInput)
                 {
-                    console.log("User is logged in", isLoggedIn)
-                    window.location = "LoggedIn.html"
+                    console.log("True");
+                    localStorage.isLoggedIn = 1;
+                    window.location = "LoggedIn.html";
                 }
+                else{
+                    console.log("Wrong pass or username.");
+                }
+                
+
+                
             
                 
                         
