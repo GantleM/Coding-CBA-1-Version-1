@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.4.8.3
+            Version: V0.4.8.4
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -74,7 +74,7 @@
         </style>
     </head>
     
-    <body class="body" id="body" onload="isLoggedIn()">
+    <body class="body" id="body" onload="loggedInCheck()">
         
         <!-- Header and buttons -->
         <div class="header" id="header">    
@@ -103,7 +103,7 @@
             
             var isLoggedIn = parseInt(localStorage.isLoggedIn);
             
-            function isLoggedIn(){
+            function loggedInCheck(){
                 if(isLoggedIn !== isLoggedIn || isLoggedIn == 0){
                     onsole.log("User isn't logged in", isLoggedIn)
                     localStorage.isLoggedIn = 0;
