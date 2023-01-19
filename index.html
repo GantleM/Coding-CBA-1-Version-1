@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.4.8.4
+            Version: V0.4.8.5
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -11,9 +11,18 @@
             
 
             Note(s):
+
+            - First I started by trying to make js check what you input and compare it to a dictionary/object.
+            Once I got it to work on a defined dictionary, I made a json file.
+
+            Then I started to look up how to import the data from json to js. I found out about fetch()
+            AFter a while I manged to get it to wrk
+            Then I added cookies 
+
             - Reads json file called users.json
                 - Extracts it into var data
             - Added isLoggedIn cookie (bug fixed?)
+            - Added show password
 
         --> 
         <title> Log-in Test </title>
@@ -92,7 +101,8 @@
             <p> Log in </p>
             <form>
                 <input type="text" id="username" placeholder="Username">
-                <input type="text" id="password" placeholder="Password">
+                <input type="password" id="password" placeholder="Password">
+                <input type="checkbox" id="checkbox" onclick="showPass()"> Show Password
                 <input type="button" value="Submit" onclick="checkInput()">
             </form>
         </div>
@@ -102,7 +112,11 @@
         <script>
             
             var isLoggedIn = parseInt(localStorage.isLoggedIn);
-            
+
+            var passwordInput = document.getElementById("password");
+            var usernameInput = document.getElementById("username");
+            var showPassCheckBox = document.getElementById("checkbox");
+
             function loggedInCheck(){
                 if(isLoggedIn !== isLoggedIn || isLoggedIn == 0){
                     console.log("User isn't logged in", isLoggedIn)
@@ -115,17 +129,22 @@
                 }
             }
 
-            async function checkInput(){
-                var passwordInput = document.getElementById("password").value;
-                var usernameInput = document.getElementById("username").value;
+            function showPass(){
+                if(showPassCheckBox.checked){
+                    passwordInput.setAttribute("type","text");
+                }
+                else{
+                    passwordInput.setAttribute("type","password");
+                }
+            }
 
-                
+            async function checkInput(){
 
                 // - Get data from Json file
                 var response = await fetch("./users.json")
                 var data = await response.json()
 
-                if(data[usernameInput] == passwordInput)
+                if(data[usernameInput.value] == passwordInput.value)
                 {
                     console.log("True");
                     localStorage.isLoggedIn = 1;
