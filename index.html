@@ -81,6 +81,12 @@
                 text-align: center;
                 padding: 10px;
                 margin: 5% 35% 0%;
+                border-radius: 10px;
+            }
+
+            .enterDetails{
+                border-radius: 10px;
+                padding: 3px;
             }
         </style>
     </head>
@@ -102,9 +108,9 @@
         <div class="logIn">
             <p> Log in </p>
             <form>
-                <input type="text" id="username" placeholder="Username">
+                <input type="text" id="username" class="enterDetails" placeholder="Username">
                 </br>
-                <input type="password" id="password" placeholder="Password">
+                <input type="password" id="password" class="enterDetails" placeholder="Password">
                 </br>
                 <span class="checkBox"> <input type="checkbox" id="checkbox" onclick="showPass()"> Show Password </span>
                 </br>
