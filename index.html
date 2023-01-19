@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.4.6
+            Version: V0.4.7
             Developer: Mark 
             Date: Last edit 19/01/2023
             Subject: Coding CBA  | Log-in
@@ -13,6 +13,7 @@
             Note(s):
             - Reads json file called users.json
                 - Extracts it into var data
+            - Added isLoggedIn cookie
 
         --> 
         <title> Log-in Test </title>
@@ -105,21 +106,32 @@
             async function checkInput(){
                 var passwordInput = document.getElementById("password").value;
                 var usernameInput = document.getElementById("username").value;
+                var isLoggedIn = parseInt(localStorage.thetheme);
                 // - Get data from Json file
                 var response = await fetch("./users.json")
                 var data = await response.json()
 
                 
+                if(isLoggedIn !== isLoggedIn || isLoggedIn == false)
+                {   
+                    localStorage.isLoggedIn = false
+                    if(data[usernameInput] == passwordInput)
+                    {
+                        console.log("True");
+                        localStorage.isLoggedIn = true
+                        window.location = "LoggedIn.html"
+                    }
+                    else{
+                        console.log("Wrong pass or username.")
+                    }
+                }
 
-            
-                if(data[usernameInput] == passwordInput)
+                else
                 {
-                    console.log("True");
                     window.location = "LoggedIn.html"
                 }
-                else{
-                    console.log("Wrong pass or username.")
-                }
+            
+                
                         
                         
                 
