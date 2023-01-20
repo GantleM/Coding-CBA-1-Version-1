@@ -3,7 +3,7 @@
     <head>
         <!-- 
             
-            Version: V0.0.1
+            Version: V0.0.3
             Developer: Mark 
             Date: Last edit 16/02/2022
             Subject: Coding project | Home page
@@ -66,7 +66,7 @@
         </style>
     </head>
     
-    <body class="body" id="body">
+    <body class="body" id="body" onload="loginCheck()">
         
         <!-- Header and buttons -->
         <div class="header" id="header">    
@@ -94,6 +94,11 @@
             function logOut(){
                 localStorage.isLoggedIn = 0;
                 window.location = "index.html"
+            }
+            function loginCheck(){
+                if(localStorage.isLoggedIn == 0){
+                    window.location = "index.html"
+                }
             }
                         
          
